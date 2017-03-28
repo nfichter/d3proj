@@ -39,4 +39,12 @@ Our site allows users to browse UFO reports in the United States ranging from ov
     - Frontend
 
 # Timeline:
-TBD once we find out due date
+  - 3/28
+    -Jason: Flask app 100% working w/ route
+    -Anya: Map into SVG
+    -Jordan: Basic HTML file w/ SVG, description of project, slider, dropdown menu
+  - 3/29
+    -Jason & Anya: Figure out how to map US coordinates onto our map & test individual dots in small groups to see if it works
+    -Jordan: Get started on CSS
+  - 3/30
+    -Jason & Anya: Begin integrating slider & showing specific dots 
