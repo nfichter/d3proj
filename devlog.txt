@@ -22,3 +22,6 @@ jordanC -- 23:10
 =============== 03/28/17 ===============
 jasonC -- 13:05
     Created app.py and home route
+anyaK -- 16:23
+    Wrote script to get longitude and latitude from google maps api
+    Running the info file and going to /info displays the results of New York, NY
