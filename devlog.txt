@@ -1,0 +1,14 @@
+-------------DEVLOG---------------
+team import UFObject
+
+=============== MM/DD/YY ===============
+firstL -- HH:MM
+    Brief explanation of task
+  
+=============== 03/26/17 ===============
+noahF -- 22:00
+    Cleaned up design doc
+  
+=============== 03/27/17 ===============
+noahF -- 23:00
+    Moved design doc info to README file
