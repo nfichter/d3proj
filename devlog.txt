@@ -6,6 +6,8 @@ firstL -- HH:MM
     Brief explanation of task
   
 =============== 03/26/17 ===============
+jasonC -- 21:00
+    Wrote project description and created site map
 noahF -- 22:00
     Cleaned up design doc
   
