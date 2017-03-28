@@ -18,3 +18,7 @@ noahF -- 23:00
     Moved design doc info to README file
 jordanC -- 23:10
     Updated design doc with mockup site
+
+=============== 03/28/17 ===============
+jasonC -- 13:05
+    Created app.py and home route
