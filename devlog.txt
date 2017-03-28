@@ -12,3 +12,5 @@ noahF -- 22:00
 =============== 03/27/17 ===============
 noahF -- 23:00
     Moved design doc info to README file
+jordanC -- 23:10
+    Updated design doc with mockup site
