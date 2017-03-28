@@ -8,6 +8,8 @@ firstL -- HH:MM
 =============== 03/26/17 ===============
 jasonC -- 21:00
     Wrote project description and created site map
+anyaK -- 21:20
+    Added project tools to design doc 
 noahF -- 22:00
     Cleaned up design doc
   
