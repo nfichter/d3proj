@@ -24,10 +24,24 @@ var lineFunction = d3.svg.line()
 
 var toPx = function convertDegreesToPx(lat,lng,state){
     if (state == "HI"){
-        return 0;
+        console.log(state);
+        console.log("lat:");
+        var ycor = 274 + (20-lat)*14;//42.0 + (50.0-lat)*/9.8;
+        console.log(ycor);
+        console.log("lng:");
+        var xcor = 86 + (155.0-lng)*12;
+        console.log(xcor);
+        return [xcor,ycor];
     };
     if (state == "AK"){
-        return 0;
+        console.log(state);
+        console.log("lat:");
+        var ycor = -200 + (60-lat)*9.8;//42.0 + (50.0-lat)*/9.8;
+        console.log(ycor);
+        console.log("lng:");
+        var xcor = 95 + (150-lng)*7.74;
+        console.log(xcor);
+        return [xcor,ycor];
     };
 //120 deg-X == 174px
 //70 deg-X  == 561px
@@ -39,6 +53,7 @@ var toPx = function convertDegreesToPx(lat,lng,state){
 //ratio -25 deg-Y == 245 px
 // px/deg = 9.8
 
+    console.log(state);
     console.log("lat:");
     var ycor = 536 + (0-lat)*9.8;//42.0 + (50.0-lat)*/9.8;
     console.log(ycor);
@@ -47,8 +62,9 @@ var toPx = function convertDegreesToPx(lat,lng,state){
     console.log(xcor);
     return [xcor,ycor];
 };
-//test coors
-coors = toPx(30,70,"NY");
+/*
+//test coors HI
+coors = toPx(20,155,"HI");
 lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
 pane.append("path")
 .attr("d", lineFunction(lineData))
@@ -62,7 +78,23 @@ pane.append("path")
 .attr("stroke-width", 2)
 .attr("fill", "none");
 
-coors = toPx(50,70,"NY");
+coors = toPx(22,160,"HI");
+lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
+pane.append("path")
+.attr("d", lineFunction(lineData))
+.attr("stroke", "blue")
+.attr("stroke-width", 2)
+.attr("fill", "none");
+lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
+pane.append("path")
+.attr("d", lineFunction(lineData))
+.attr("stroke", "blue")
+.attr("stroke-width", 2)
+.attr("fill", "none");
+*/
+/*
+//test Coors NY
+coors = toPx(30,120,"NY");
 lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
 pane.append("path")
 .attr("d", lineFunction(lineData))
@@ -76,7 +108,7 @@ pane.append("path")
 .attr("stroke-width", 2)
 .attr("fill", "none");
 
-coors = toPx(45,70,"NY");
+coors = toPx(50,110,"NY");
 lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
 pane.append("path")
 .attr("d", lineFunction(lineData))
@@ -90,7 +122,7 @@ pane.append("path")
 .attr("stroke-width", 2)
 .attr("fill", "none");
 
-coors = toPx(40,70,"NY");
+coors = toPx(45,100,"NY");
 lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
 pane.append("path")
 .attr("d", lineFunction(lineData))
@@ -104,7 +136,21 @@ pane.append("path")
 .attr("stroke-width", 2)
 .attr("fill", "none");
 
-coors = toPx(35,70,"NY");
+coors = toPx(40,90,"NY");
+lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
+pane.append("path")
+.attr("d", lineFunction(lineData))
+.attr("stroke", "blue")
+.attr("stroke-width", 2)
+.attr("fill", "none");
+lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
+pane.append("path")
+.attr("d", lineFunction(lineData))
+.attr("stroke", "blue")
+.attr("stroke-width", 2)
+.attr("fill", "none");
+
+coors = toPx(35,80,"NY");
 lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
 pane.append("path")
 .attr("d", lineFunction(lineData))
@@ -131,6 +177,7 @@ pane.append("path")
 .attr("stroke", "blue")
 .attr("stroke-width", 2)
 .attr("fill", "none");
+*/
         </script>
     </body>
 </html>
