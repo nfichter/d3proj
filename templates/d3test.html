@@ -36,10 +36,10 @@ var toPx = function convertDegreesToPx(lat,lng,state){
     if (state == "AK"){
         console.log(state);
         console.log("lat:");
-        var ycor = -200 + (60-lat)*9.8;//42.0 + (50.0-lat)*/9.8;
+        var ycor = 199 + (60-lat)*5.7;//42.0 + (50.0-lat)*/9.8;
         console.log(ycor);
         console.log("lng:");
-        var xcor = 95 + (150-lng)*7.74;
+        var xcor = 56 + (150-lng)*2.5;
         console.log(xcor);
         return [xcor,ycor];
     };
@@ -62,6 +62,36 @@ var toPx = function convertDegreesToPx(lat,lng,state){
     console.log(xcor);
     return [xcor,ycor];
 };
+/*
+//test coors AK
+coors = toPx(60,150,"AK");
+lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
+pane.append("path")
+.attr("d", lineFunction(lineData))
+.attr("stroke", "blue")
+.attr("stroke-width", 2)
+.attr("fill", "none");
+lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
+pane.append("path")
+.attr("d", lineFunction(lineData))
+.attr("stroke", "blue")
+.attr("stroke-width", 2)
+.attr("fill", "none");
+
+coors = toPx(70,165,"AK");
+lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
+pane.append("path")
+.attr("d", lineFunction(lineData))
+.attr("stroke", "blue")
+.attr("stroke-width", 2)
+.attr("fill", "none");
+lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
+pane.append("path")
+.attr("d", lineFunction(lineData))
+.attr("stroke", "blue")
+.attr("stroke-width", 2)
+.attr("fill", "none");
+*/
 /*
 //test coors HI
 coors = toPx(20,155,"HI");
