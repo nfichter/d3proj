@@ -31,6 +31,9 @@ anyaK -- 16:23
 anyaK -- 11:24
     Got map working for most states (sorry Hawaii and Alaska)
     Longitude/latitude degrees to px converter working
+anyaK -- 11:24
+    Got map working for most states (sorry Hawaii and Alaska)
+    Longitude/latitude degrees to px converter working
 
 =============== 03/2/17 ===============
 anyaK -- 10:54
@@ -38,5 +41,5 @@ anyaK -- 10:54
 anyaK -- 18:14
     Cleaned up grid code
     Set up test dots
-anyaK -- 18:31
-    Added point functionality
+anyaK -- 19:41
+    Hooked up test data to google maps api to website

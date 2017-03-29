@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import urllib2, json
+from django.utils.safestring import mark_safe
 
 app = Flask(__name__)
 key = "AIzaSyCribAPQyNvWFjOt0g66YjJVP_q2REPvoE"
@@ -10,16 +11,23 @@ def formatCity(name):
     return "+".join(ans)
 
 
-@app.route("/info")
+@app.route("/")
 def root():
-    city = formatCity("New York")
-    state = "NY"
+    #SUPER IMPORTANT FOR FORMATTING
+    CSVdata = [["New York","NY","saw a potato fly overhead"]]
+    reports = [] #list of lists of formatted reports [latitude,longitude,state,city,specs]
+    for report in CSVdata:
+        reports.append(getData(report[0],report[1],report[2]))
+    #print json.dumps(data['results'][0], indent=4, sort_keys=True)
+    print reports
+    return render_template("d3test.html", reports=mark_safe(reports)) #reports is a list of lists [[latitude,longitude,state,city,specs]
+
+def getData(city,state,specs): #reutrns [latitude,longitude,state,city,specs]  where specs are the extra details about the report
+    city = formatCity(city)
     u = urllib2.urlopen("https://maps.googleapis.com/maps/api/geocode/json?address="+city+",+"+state+"&key="+key)
     response = u.read()
     data = json.loads( response )
-    #print json.dumps(data['results'][0], indent=4, sort_keys=True)
-    return render_template("get_location_info.html", status = data['status'], location=data['results'][0]['address_components'][0]['long_name'],latitude = data['results'][0]['geometry']['location']['lat'],longitude=data['results'][0]['geometry']['location']['lng'])
-
+    return [data['results'][0]['geometry']['location']['lat'],-1*data['results'][0]['geometry']['location']['lng'],mark_safe(state),mark_safe(city),mark_safe(specs)]
 
 if __name__ == "__main__":
    app.debug = True

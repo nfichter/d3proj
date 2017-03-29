@@ -8,6 +8,8 @@
         </style>
     </head>
     <body>
+    <h1>Get Location Info</h1>
+    <br><br>
         <svg id="pane" style="border:1px solid">
         </svg>
         <script>
@@ -81,10 +83,9 @@ pane.append("path")
 
 //circle stuff
 //hardcoded points
-var reportPoints = [  //latitude,longitude,state
-    [40, 80, "PA"],
-    [20, 155, "HI"],
-    [60,150,"AK"]];
+var reportPoints = {{reports}};
+//console.log(reportPoints);
+
 var plot = function plotDot(dotInfo){ //dot info is a list of dot info lists  with the format [<latitude>,<longitude>,<state>]
 //circle stuff with modified code from dashingd3
     var pointList = [];
