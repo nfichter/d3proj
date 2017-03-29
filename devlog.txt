@@ -14,6 +14,9 @@ noahF -- 22:00
     Cleaned up design doc
   
 =============== 03/27/17 ===============
+teamU -- 13:00
+    Met with other groups for feedback on our design
+
 noahF -- 23:00
     Moved design doc info to README file
 jordanC -- 23:10
