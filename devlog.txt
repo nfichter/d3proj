@@ -35,3 +35,6 @@ anyaK -- 11:24
 =============== 03/2/17 ===============
 anyaK -- 10:54
     Tuned US coordinates and wrote Hawaii calculations
+anyaK -- 18:14
+    Cleaned up grid code
+    Set up test dots

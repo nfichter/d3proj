@@ -8,7 +8,8 @@
         </style>
     </head>
     <body>
-        <svg id="pane" style="border:1px solid"></svg>
+        <svg id="pane" style="border:1px solid">
+        </svg>
         <script>
 var pane = d3.select("svg");
 pane.attr("width",602);
@@ -16,11 +17,41 @@ pane.attr("height",600);
 pane.append("svg:image")
 .attr("xlink:href","../static/usaMap.jpg");
 
+//circle stuff with modified code from dashingd3
+var pointList = [  //cx,cy,r,fill
+    [30, 30, 20, "green" ],
+    [70, 70, 20, "purple"],
+    [110,100,20,"red"]];
+var points = pane.selectAll("circle")
+    .data(pointList)
+    .enter()
+    .append("circle");
+var circleAttributes = points
+    .attr("cx", function (d) { return d[0]; })
+    .attr("cy", function (d) { return d[1]; })
+    .attr("r", function (d) { return d[2]; })
+    .style("fill", function(d) { return d[3]; });
+
+
 //get line
 var lineFunction = d3.svg.line()
     .x(function(d) { return d.x; })
     .y(function(d) { return d.y; })
     .interpolate("linear");
+//makes line
+var makeLine = function makesLines(coors,color){ //coors list of list pairs of coordinates
+    var lData = [];
+    for (var i = 0;i<coors.length;i++){
+        lData.push([ { "x": coors[i][0] - 20,   "y": coors[i][1]},  { "x": coors[i][0]+20,  "y": coors[i][1]}],[{ "x": coors[i][0],   "y": coors[i][1]-20},  { "x": coors[i][0],  "y": coors[i][1]+20 }]);
+    };
+    for (var i = 0;i<lData.length;i++){
+pane.append("path")
+.attr("d", lineFunction(lData[i]))
+.attr("stroke", color)
+.attr("stroke-width", 2)
+.attr("fill", "none");
+    }
+};
 
 var toPx = function convertDegreesToPx(lat,lng,state){
     if (state == "HI"){
@@ -63,155 +94,36 @@ var toPx = function convertDegreesToPx(lat,lng,state){
     return [xcor,ycor];
 };
 
+var plot = function plotDot(lat,lng){
+
+};
 
 
-var testAK = function test_Alaska(){
+////////TEST CASE FUNCTIONS //////////////////////////
+
 //test coors AK
-coors = toPx(60,150,"AK");
-lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "red")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "red")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-
-coors = toPx(70,165,"AK");
-lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "red")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "red")
-.attr("stroke-width", 2)
-.attr("fill", "none");
+var testAK = function test_Alaska(){
+var coors = [toPx(60,150,"AK")];
+coors.push(toPx(70,165,"AK"));
+makeLine(coors,"red");
 };
 
-var testHI = function test_Hawaii(){
 //test coors HI
-coors = toPx(20,155,"HI");
-lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "green")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "green")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-
-coors = toPx(22,160,"HI");
-lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "green")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "green")
-.attr("stroke-width", 2)
-.attr("fill", "none");
+var testHI = function test_Hawaii(){
+var coors = [toPx(20,155,"HI")];
+coors.push(toPx(22,160,"HI"));
+makeLine(coors,"green");
 };
 
-var testMain = function test_regular_states(){
 //test Coors NY is arbitrary state that is not HI or AK
-coors = toPx(30,120,"NY");
-lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-
-coors = toPx(50,110,"NY");
-lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-
-coors = toPx(45,100,"NY");
-lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-
-coors = toPx(40,90,"NY");
-lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-
-coors = toPx(35,80,"NY");
-lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-
-coors = toPx(25,70,"NY");
-lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
-lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
-pane.append("path")
-.attr("d", lineFunction(lineData))
-.attr("stroke", "blue")
-.attr("stroke-width", 2)
-.attr("fill", "none");
+var testMain = function test_regular_states(){
+var coors = [toPx(50,120,"NY")];
+coors.push(toPx(45,110,"NY"));
+coors.push(toPx(40,100,"NY"));
+coors.push(toPx(35,90,"NY"));
+coors.push(toPx(30,80,"NY"));
+coors.push(toPx(25,70,"NY"));
+makeLine(coors,"blue");
 };
 //Test Grid
 //testAK();
