@@ -28,3 +28,7 @@ anyaK -- 16:23
 anyaK -- 11:24
     Got map working for most states (sorry Hawaii and Alaska)
     Longitude/latitude degrees to px converter working
+
+=============== 03/2/17 ===============
+anyaK -- 10:54
+    Tuned US coordinates and wrote Hawaii calculations
