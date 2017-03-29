@@ -38,3 +38,5 @@ anyaK -- 10:54
 anyaK -- 18:14
     Cleaned up grid code
     Set up test dots
+anyaK -- 18:31
+    Added point functionality
