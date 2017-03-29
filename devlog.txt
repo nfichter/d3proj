@@ -25,3 +25,6 @@ jasonC -- 13:05
 anyaK -- 16:23
     Wrote script to get longitude and latitude from google maps api
     Running the info file and going to /info displays the results of New York, NY
+anyaK -- 11:24
+    Got map working for most states (sorry Hawaii and Alaska)
+    Longitude/latitude degrees to px converter working

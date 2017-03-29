@@ -1,22 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>D3 Test Page</title>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-<style>
-.pane{
-    width: 500px;
-    height: 500px;
-    margin: 1px;
-}
-</style>
-</head>
-<body>
-    <svg class="pane"></svg>
-
-    <script>
+    <head>
+        <meta charset="UTF-8">
+        <title>D3 Test Page</title>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <svg id="pane" style="border:1px solid"></svg>
+        <script>
 var pane = d3.select("svg");
-    </script>
-</body>
+pane.attr("width",602);
+pane.attr("height",600);
+pane.append("svg:image")
+.attr("xlink:href","../static/usaMap.jpg");
+
+//get line
+var lineFunction = d3.svg.line()
+    .x(function(d) { return d.x; })
+    .y(function(d) { return d.y; })
+    .interpolate("linear");
+
+var toPx = function convertDegreesToPx(lat,lng,state){
+    if (state == "HI"){
+        return 0;
+    };
+    if (state == "AK"){
+        return 0;
+    };
+//120 deg-X == 174px
+//70 deg-X  == 561px
+//ratio -50 deg-X to 387px
+// px/deg = 7.74
+
+//50 deg-Y == 42px
+//30 deg-Y == 243px
+//ratio -20 deg-Y == 201 px
+// px/deg = 10.05
+
+    console.log("lat:");
+    var ycor = 42 + (50-lat)*10.05;
+    console.log(ycor);
+    console.log("lng:");
+    var xcor = 174 + (120.0-lng)*7.74;
+    console.log(xcor);
+    return [xcor,ycor];
+};
+//test coors
+coors = toPx(30,70,"NY");
+lineData = [ { "x": 0,   "y": coors[1]},  { "x": 600,  "y": coors[1]}];
+pane.append("path")
+.attr("d", lineFunction(lineData))
+.attr("stroke", "blue")
+.attr("stroke-width", 2)
+.attr("fill", "none");
+lineData = [ { "x": coors[0],   "y": 0},  { "x": coors[0],  "y": 300 }];
+pane.append("path")
+.attr("d", lineFunction(lineData))
+.attr("stroke", "blue")
+.attr("stroke-width", 2)
+.attr("fill", "none");
+
+        </script>
+    </body>
 </html>
