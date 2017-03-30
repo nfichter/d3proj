@@ -274,6 +274,7 @@ function brushed() {
 
   handle.attr("transform", "translate(" + timeScale(value) + ",0)");
   handle.select('text').text(formatDate(value));
+  console.log(formatDate(value).split(" "));
 }
         </script>
     </body>
