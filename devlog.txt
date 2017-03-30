@@ -35,7 +35,7 @@ anyaK -- 11:24
     Got map working for most states (sorry Hawaii and Alaska)
     Longitude/latitude degrees to px converter working
 
-=============== 03/2/17 ===============
+=============== 03/29/17 ===============
 anyaK -- 10:54
     Tuned US coordinates and wrote Hawaii calculations
 anyaK -- 18:14
@@ -43,3 +43,9 @@ anyaK -- 18:14
     Set up test dots
 anyaK -- 19:41
     Hooked up test data to google maps api to website
+
+=============== 03/30/17 ===============
+jasonC -- 01:10
+    Created data directory and added 2017 ufo reports
+    Removed unnecessary files and renamed get_location_info.py to app.py
+    Added csv dictreader to read information from reports.csv
