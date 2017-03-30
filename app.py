@@ -14,10 +14,12 @@ def formatCity(name):
 @app.route("/")
 def root():
     #SUPER IMPORTANT FOR FORMATTING
-    CSVdata = [["New York","NY","saw a potato fly overhead"]]
+    CSVdata = [["New York","NY","saw a potato fly overhead"],["Chicago","IL","UChicago students were emitting green light"],["Los Angeles","CA","saw a potato fly overhead"],["Los Anasdfasdf","CA","saw a potato fly overhead"]]
     reports = [] #list of lists of formatted reports [latitude,longitude,state,city,specs]
     for report in CSVdata:
-        reports.append(getData(report[0],report[1],report[2]))
+        result = getData(report[0],report[1],report[2])
+        if result != False:
+            reports.append(result)
     #print json.dumps(data['results'][0], indent=4, sort_keys=True)
     print reports
     return render_template("d3test.html", reports=mark_safe(reports)) #reports is a list of lists [[latitude,longitude,state,city,specs]
@@ -27,7 +29,10 @@ def getData(city,state,specs): #reutrns [latitude,longitude,state,city,specs]  w
     u = urllib2.urlopen("https://maps.googleapis.com/maps/api/geocode/json?address="+city+",+"+state+"&key="+key)
     response = u.read()
     data = json.loads( response )
-    return [data['results'][0]['geometry']['location']['lat'],-1*data['results'][0]['geometry']['location']['lng'],mark_safe(state),mark_safe(city),mark_safe(specs)]
+    print data
+    if data['status'] == 'OK':
+        return [data['results'][0]['geometry']['location']['lat'],-1*data['results'][0]['geometry']['location']['lng'],mark_safe(state),mark_safe(city),mark_safe(specs)]
+    return False
 
 def getReports():
     reports = csv.DictReader(open('data/reports.csv')) #need to figure out slider interaction
