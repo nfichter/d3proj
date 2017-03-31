@@ -18,7 +18,6 @@ def root():
     isWorking = 0 #counter
     for report in CSVreports:
         tempReport = {}
-        print isWorking
         for key in report:
             tempReport[mark_safe(key)] = mark_safe(report[key])
         reports.append(tempReport)
@@ -48,6 +47,7 @@ def CSVtoFormattedCSV(year):
         writer.writeheader()
 
         for report in CSVreports:
+            print isWorking
             isWorking = isWorking + 1
             result = getData(report["City"],report["State"],report["Summary"],str.split(report["Date / Time"]," ")[0])
             if result != False:

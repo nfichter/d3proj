@@ -5,6 +5,7 @@
         <title>D3 Test Page</title>
         <script src="http://d3js.org/d3.v3.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="static/js/tooltip.js"></script> <!--borrowed code from https://github.com/Caged/d3-tip-->
         <style>
 /*STOLEN slider code from zan on bl.ocks.org*/
 
@@ -41,6 +42,34 @@ a {
   text-align: center;
   font-size: 18px;
 }
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 1);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 25%;
+  line-height: 4;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
 
         </style>
     </head>
@@ -50,6 +79,13 @@ a {
         <svg id="pane" style="border:1px solid">
         </svg>
         <script>
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>Frequency:</strong> <span style='color:red'>" + d.specs + "</span>";
+  })
+
 var pane = d3.select("svg");
 pane.attr("width",1200);
 pane.attr("height",1000);
@@ -57,6 +93,7 @@ pane.append("svg:image")
 .attr("xlink:href","../static/usaMap.jpg")
 .attr("transform", "scale(2)");
 
+pane.call(tip);
 
 var toPx = function convertDegreesToPx(lat,lng,state){
     if (state == "HI"){
@@ -134,9 +171,10 @@ var plot = function plotDot(dotInfo){ //dot info is a list of dot info lists  wi
         tempDict.ycor = tempCoor[1];
         tempDict.radius = 5;
         tempDict.color = "purple";
-        tempDict.state = dotInfo[i][2];
-        tempDict.city = dotInfo[i][3];
-        tempDict.spect = dotInfo[i][4];
+        tempDict.state = dotInfo[i]["state"];
+        tempDict.city = dotInfo[i]["city"];
+        tempDict.specs = dotInfo[i]["specs"];
+        tempDict.day = dotInfo[i]["date"];
         pointList.push(tempDict);
     };
 var points = pane.selectAll("circle")
@@ -147,7 +185,9 @@ var circleAttributes = points
     .attr("cx", function (d) { return d.xcor; })
     .attr("cy", function (d) { return d.ycor; })
     .attr("r", function (d) { return d.radius; })
-    .style("fill", function(d) { return d.color; });
+    .style("fill", function(d) { return d.color; })
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide);
 };
 plot(reportPoints);
 
