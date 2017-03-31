@@ -55,3 +55,5 @@ anyaK -- 19:41
     Rewrote main route to maybe work with new csv files but haven't tested yet
 anyaK -- 22:32
     Added hover feature to points
+jasonC -- 23:50
+    Wrote a script to parse report data from sites (incomplete)
