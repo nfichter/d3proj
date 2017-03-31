@@ -1,5 +1,6 @@
 -------------DEVLOG---------------
 team import UFObject
+Jordan Chan, Jason Chua, Noah Fichter, Anya Keller
 
 =============== MM/DD/YY ===============
 firstL -- HH:MM
