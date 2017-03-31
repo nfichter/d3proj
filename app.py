@@ -13,29 +13,30 @@ def formatCity(name):
 
 @app.route("/")
 def root():
-    #SUPER IMPORTANT FOR FORMATTING
-    CSVdata = [["New York","NY","saw a potato fly overhead"],["Chicago","IL","UChicago students were emitting green light"],["Los Angeles","CA","saw a potato fly overhead"],["Los Anasdfasdf","CA","saw a potato fly overhead"]]
-    reports = [] #list of lists of formatted reports [latitude,longitude,state,city,specs]
-    for report in CSVdata:
-        result = getData(report[0],report[1],report[2])
-        if result != False:
-            reports.append(result)
+    CSVreports = getReports()
+    reports = []
+    isWorking = 0 #counter
+    for report in CSVreports:
+        print isWorking
+        isWorking = isWorking + 1
+        if isWorking <  50:
+            result = getData(report["City"],report["State"],report["Summary"])
+            if result != False:
+                reports.append(result)
     #print json.dumps(data['results'][0], indent=4, sort_keys=True)
-    print reports
-    return render_template("d3test.html", reports=mark_safe(reports)) #reports is a list of lists [[latitude,longitude,state,city,specs]
-
-def getData(city,state,specs): #reutrns [latitude,longitude,state,city,specs]  where specs are the extra details about the report
+    #print reports
+    return render_template("d3test.html", reports=mark_safe(reports))
+def getData(city,state,specs):
     city = formatCity(city)
     u = urllib2.urlopen("https://maps.googleapis.com/maps/api/geocode/json?address="+city+",+"+state+"&key="+key)
     response = u.read()
     data = json.loads( response )
-    print data
     if data['status'] == 'OK':
         return {mark_safe("lat"):data['results'][0]['geometry']['location']['lat'],mark_safe("lng"):-1*data['results'][0]['geometry']['location']['lng'],mark_safe("state"):mark_safe(state),mark_safe("city"):mark_safe(city),mark_safe("specs"):mark_safe(specs)}
     return False
 
 def getReports():
-    reports = csv.DictReader(open('data/reports.csv')) #need to figure out slider interaction
+    reports = csv.DictReader(open('data/2017.csv')) #need to figure out slider interaction
     return reports
 
 if __name__ == "__main__":
