@@ -31,7 +31,7 @@ def getData(city,state,specs): #reutrns [latitude,longitude,state,city,specs]  w
     data = json.loads( response )
     print data
     if data['status'] == 'OK':
-        return [data['results'][0]['geometry']['location']['lat'],-1*data['results'][0]['geometry']['location']['lng'],mark_safe(state),mark_safe(city),mark_safe(specs)]
+        return {mark_safe("lat"):data['results'][0]['geometry']['location']['lat'],mark_safe("lng"):-1*data['results'][0]['geometry']['location']['lng'],mark_safe("state"):mark_safe(state),mark_safe("city"):mark_safe(city),mark_safe("specs"):mark_safe(specs)}
     return False
 
 def getReports():

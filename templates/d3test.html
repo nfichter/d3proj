@@ -124,27 +124,30 @@ pane.append("path")
 var reportPoints = {{reports}};
 //console.log(reportPoints);
 
-var plot = function plotDot(dotInfo){ //dot info is a list of dot info lists  with the format [<latitude>,<longitude>,<state>]
+var plot = function plotDot(dotInfo){ //dot info is a list of dot info lists  with the format [<latitude>,<longitude>,<state>,<city>,<report>]
 //circle stuff with modified code from dashingd3
     var pointList = [];
     for (var i = 0;i<dotInfo.length;i++){
-        var tempList = [];
-        var tempCoor = toPx(dotInfo[i][0],dotInfo[i][1],dotInfo[i][2]);
-        tempList.push(tempCoor[0]);
-        tempList.push(tempCoor[1]);
-        tempList.push(5);
-        tempList.push("purple");
-        pointList.push(tempList);
+        var tempDict = {};
+        var tempCoor = toPx(dotInfo[i]["lat"],dotInfo[i]["lng"],dotInfo[i]["state"]);
+        tempDict.xcor = tempCoor[0];
+        tempDict.ycor = tempCoor[1];
+        tempDict.radius = 5;
+        tempDict.color = "purple";
+        tempDict.state = dotInfo[i][2];
+        tempDict.city = dotInfo[i][3];
+        tempDict.spect = dotInfo[i][4];
+        pointList.push(tempDict);
     };
 var points = pane.selectAll("circle")
     .data(pointList)
     .enter()
     .append("circle");
 var circleAttributes = points
-    .attr("cx", function (d) { return d[0]; })
-    .attr("cy", function (d) { return d[1]; })
-    .attr("r", function (d) { return d[2]; })
-    .style("fill", function(d) { return d[3]; });
+    .attr("cx", function (d) { return d.xcor; })
+    .attr("cy", function (d) { return d.ycor; })
+    .attr("r", function (d) { return d.radius; })
+    .style("fill", function(d) { return d.color; });
 };
 plot(reportPoints);
 
