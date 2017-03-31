@@ -24,7 +24,7 @@ def root():
         isWorking = isWorking + 1
     #print json.dumps(data['results'][0], indent=4, sort_keys=True)
     #print reports
-    return render_template("d3test.html", reports=mark_safe(reports))
+    return render_template("index.html", reports=mark_safe(reports))
 def testFunc():
     print "hello"
 
