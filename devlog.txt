@@ -51,3 +51,6 @@ jasonC -- 01:10
     Added csv dictreader to read information from reports.csv
 anyaK -- 19:41
     Got dictreader data working with page
+    Wrote function to convert CSV to one with Longitude and latitude from google api
+    Rewrote main route to maybe work with new csv files but haven't tested yet
+
