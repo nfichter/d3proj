@@ -49,7 +49,6 @@ def CSVtoFormattedCSV(year):
 
         for report in CSVreports:
             isWorking = isWorking + 1
-            print isWorking
             result = getData(report["City"],report["State"],report["Summary"],str.split(report["Date / Time"]," ")[0])
             if result != False:
                 writer.writerow(result)
