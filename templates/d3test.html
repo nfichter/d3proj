@@ -18,6 +18,7 @@ body {
   background: rgba(0, 0, 0, .8);
   color: #fff;
   border-radius: 2px;
+  width:200px;
 }
 
 /* Creates a small triangle extender for the tooltip */
@@ -45,9 +46,11 @@ body {
     <body>
     <h1>Get Location Info</h1>
     <br><br>
+    <center>
         <svg id="pane" style="border:1px solid">
         </svg>
-        <script>
+    </center>
+<script>
 var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
