@@ -7,46 +7,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="static/js/tooltip.js"></script> <!--borrowed code from https://github.com/Caged/d3-tip-->
         <style>
-/*STOLEN slider code from zan on bl.ocks.org*/
-
-p {
-  margin: 50px;
-}
-
-a {
-  color: #4FDEF2;
-}
-
-.axis {
-  fill: gray;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-.axis .halo {
-  stroke: gray;
-  stroke-width: 4px;
-  stroke-linecap: round;
-}
-
-.slider .handle path {
-  stroke: black;
-  stroke-width: 3px;
-  stroke-linecap: round;
-  pointer-events: none;
-}
-
-.slider .handle text {
-  fill: black;
-  text-align: center;
-  font-size: 18px;
-}
+/*tip code */
 .d3-tip {
-  line-height: 1;
+  line-height: 2;
   font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 1);
+  padding: 6px;
+  background: rgba(0, 0, 0, .8);
   color: #fff;
   border-radius: 2px;
 }
@@ -56,8 +22,8 @@ a {
   box-sizing: border-box;
   display: inline;
   font-size: 10px;
-  width: 25%;
-  line-height: 4;
+  width: 100%;
+  line-height: 1;
   color: rgba(0, 0, 0, 0.8);
   content: "\25BC";
   position: absolute;
