@@ -16,7 +16,7 @@ def getDates():
     dates = []
     for month in u:
         if len(month) == 7 and month[2] == '/':
-            d = month[3:] + month[:2] 
+            d = month[3:] + month[:2]
             dates.append(d)
 
     return dates
@@ -39,7 +39,9 @@ def addReport(m, dates):
         if u[i] == 'Date / Time' or ('/' in u[i] and ':' in u[i]):
             x = 0
             while x < 7:
-                ret.append(str(u[i+x]))
+                r = u[i+x]
+                r = r.replace(',', '","')
+                ret.append(r)
                 x += 1
         i += 1
     f = open(fname, 'a+')
