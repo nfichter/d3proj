@@ -16,23 +16,23 @@ var tip = d3.tip()
 
   var toPx = function convertDegreesToPx(lat,lng,state){
       if (state == "HI"){
-          console.log(state);
-          console.log("lat:");
+          //console.log(state);
+          //console.log("lat:");
           var ycor = 548 + (20-lat)*28;//42.0 + (50.0-lat)*/9.8;
-          console.log(ycor);
-          console.log("lng:");
+          //console.log(ycor);
+          //console.log("lng:");
           var xcor = 172 + (155.0-lng)*28;
-          console.log(xcor);
+          //console.log(xcor);
           return [xcor,ycor];
       };
       if (state == "AK"){
-          console.log(state);
-          console.log("lat:");
+          //console.log(state);
+          //console.log("lat:");
           var ycor = 398 + (60-lat)*11.4;//42.0 + (50.0-lat)*/9.8;
-          console.log(ycor);
-          console.log("lng:");
+          //console.log(ycor);
+          //console.log("lng:");
           var xcor = 112 + (150-lng)*5;
-          console.log(xcor);
+          //console.log(xcor);
           return [xcor,ycor];
       };
 //120 deg-X == 174px
@@ -45,7 +45,7 @@ var tip = d3.tip()
   //ratio -25 deg-Y == 245 px
   // px/deg = 9.8
 
-      console.log(state);
+      //console.log(state);
       //console.log("lat:");
       var ycor = 1072 + (0-lat)*19.6;//42.0 + (50.0-lat)*/9.8;
       //console.log(ycor);
