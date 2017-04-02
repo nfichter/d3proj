@@ -35,15 +35,18 @@ def addReport(m, dates):
     else:
         i = 0
     while i < len(u):
-        if u[i] == 'Date / Time' or ('/' in u[i] and ':' in u[i]):
+        if u[i] == 'Date / Time' or ('/' in u[i] and u[i][len(u[i])-3] == ':'):
             x = 0
             while x < 7:
                 r = '"' + u[i+x] + '"'
                 ret.append(r)
                 x += 1
         i += 1
-    f = open(fname, 'a+')
+    #f = open(fname, 'a+')
     i = 0
+    print ret
+
+'''
     while i < len(ret):
         if i % 7 == 0 and (ret[i+1] == '' or ret[i+2] == ''):
             i += 7
@@ -54,6 +57,7 @@ def addReport(m, dates):
                 f.write(ret[i] + '\n')
             i += 1
     f.close()
+'''
         
 def addAll():
     dates = getDates()
