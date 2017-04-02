@@ -107,6 +107,10 @@ var tip = d3.tip()
       .on('mouseover', tip.show)
       .on('mouseout', tip.hide);
   };
+//clear dots
+//points.remove();
+
+
   //plot(reportPoints);
 
 ////////TEST CASE FUNCTIONS //////////////////////////

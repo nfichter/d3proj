@@ -54,9 +54,27 @@ body {
 </script>
 <script>
 //circle stuff
-//hardcoded points
-var reportPoints = {{reports}};
+var fullYearReport = {{reports}};
+var reportPoints = [];//fullYearReport;
+
+//currently hardcoded
+var month = 2;
 //console.log(reportPoints);
+$.ajax({
+    url: '/redrawMonth',
+    //'/saveSong'
+    type: 'GET',
+    //'POST'
+    data: {"fullReport":JSON.stringify(fullYearReport),"month":month},
+    //title,artist
+    success: function( d ) {
+        console.log("success");
+    reportPoints = JSON.parse(d);
+    console.log(JSON.parse(d));
+    d3.selectAll('circle').remove();
+    plot(reportPoints);
+    }
+});
 plot(reportPoints);
 </script>
     </body>

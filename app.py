@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import urllib2, json, csv
 from django.utils.safestring import mark_safe
 
@@ -9,7 +9,6 @@ key = "AIzaSyCribAPQyNvWFjOt0g66YjJVP_q2REPvoE"
 def formatCity(name):
     ans = str.split(name)
     return "+".join(ans)
-
 
 @app.route("/")
 def root():
@@ -25,8 +24,22 @@ def root():
     #print json.dumps(data['results'][0], indent=4, sort_keys=True)
     #print reports
     return render_template("index.html", reports=mark_safe(reports))
-def testFunc():
-    print "hello"
+
+#ajax to get specific month data
+@app.route("/redrawMonth")
+def refineData():
+    fullReport = json.loads(request.args.get("fullReport"))
+    #print fullReport
+    month = request.args.get("month")
+    result = []
+    for report in fullReport:
+        reportMonth = report["date"].split("/")[0]
+    #print report["date"] + " : " + str(reportMonth)
+        if reportMonth == str(month):
+            print "yes"
+            result.append(report)
+    return json.dumps(result)
+
 
 def getData(city,state,specs,date):
     city = formatCity(city)
