@@ -60,6 +60,7 @@ var reportPoints = [];//fullYearReport;
 //currently hardcoded
 var month = 2;
 //console.log(reportPoints);
+var updateMonth = function redrawReports(month){
 $.ajax({
     url: '/redrawMonth',
     //'/saveSong'
@@ -75,7 +76,8 @@ $.ajax({
     plot(reportPoints);
     }
 });
-plot(reportPoints);
+};
+updateMonth(month);
 </script>
     </body>
 </html>
