@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFO Reports</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+
+  <body>
+    <div class="small-10 columns">
+      <div class="slider" data-slider data-start="1905" data-end="2017" data-initial-start="2017">
+	<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="years"></span>
+	<span class="slider-fill" data-slider-fill></span>
+      </div>
+    </div>
+    Year:
+    <div class="small-2 columns">
+      <input type="number" id="years">
+    </div>
+    <br>
+    
+    <div class="small-10 columns">
+      <div class="slider" data-slider data-start="1" data-end="12" data-initial-start="6">
+	<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="months"></span>
+	<span class="slider-fill" data-slider-fill></span>
+      </div>
+    </div>
+    Month:
+    <div class="small-2 columns">
+      <input type="number" id="months">
+    </div>
+    <br>
+    
+    <div class="small-10 columns">
+      <div class="slider" data-slider data-start="1" data-end="31" data-initial-start="15">
+	<span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="days"></span>
+	<span class="slider-fill" data-slider-fill></span>
+      </div>
+    </div>
+    Day:
+    <div class="small-2 columns">
+      <input type="number" id="days">
+    </div>
+    
+
+
+
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+  
+</html>

@@ -50,6 +50,8 @@ jasonC -- 01:10
     Created data directory and added 2017 ufo reports
     Removed unnecessary files and renamed get_location_info.py to app.py
     Added csv dictreader to read information from reports.csv
+jordanC -- 02:10
+    Created an initial html page with basic bootstrapping
 anyaK -- 19:41
     Got dictreader data working with page
     Wrote function to convert CSV to one with Longitude and latitude from google api
@@ -63,3 +65,5 @@ anyaK -- 11:30
     Cleaned up js code
 anyaK -- 12:40
     Made site compatable with months
+jordanC -- 13:08
+    Added sliders and checkboxes for years, months, days
