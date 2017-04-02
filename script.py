@@ -60,7 +60,7 @@ def addReport(m, dates):
 def addAll():
     dates = getDates()
     i = 0
-    while i < 3:
+    while i < len(dates):
         addReport(i, dates)
         print 'Added ' + dates[i][4:] + '/' + dates[i][0:4]
         i += 1
