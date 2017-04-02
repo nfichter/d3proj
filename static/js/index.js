@@ -46,12 +46,12 @@ var tip = d3.tip()
   // px/deg = 9.8
 
       console.log(state);
-      console.log("lat:");
+      //console.log("lat:");
       var ycor = 1072 + (0-lat)*19.6;//42.0 + (50.0-lat)*/9.8;
-      console.log(ycor);
-      console.log("lng:");
+      //console.log(ycor);
+      //console.log("lng:");
       var xcor = 348.0 + (120.0-lng)*15.48;
-      console.log(xcor);
+      //console.log(xcor);
       return [xcor,ycor];
   };
 
