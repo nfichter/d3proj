@@ -38,10 +38,7 @@ def addReport(m, dates):
         if u[i] == 'Date / Time' or ('/' in u[i] and ':' in u[i]):
             x = 0
             while x < 7:
-                if x == 5:
-                    r = '"' + u[i+x] + '"'
-                else:
-                    r = u[i+x]
+                r = '"' + u[i+x] + '"'
                 ret.append(r)
                 x += 1
         i += 1
