@@ -58,3 +58,6 @@ anyaK -- 22:32
     Added hover feature to points
 jasonC -- 23:50
     Wrote a script to parse report data from sites (incomplete)
+=============== 04/2/17 ===============
+anyaK -- 11:30
+    Cleaned up js code
