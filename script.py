@@ -39,7 +39,7 @@ def addReport(m, dates):
             x = 0
             while x < 7:
                 if x == 5:
-                    r = "" + u[i+x] + ""
+                    r = "'" + u[i+x] + "'"
                 else:
                     r = u[i+x]
                 ret.append(r)
