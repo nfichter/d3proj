@@ -23,10 +23,9 @@ def getDates():
 
 def addReport(m, dates):
     link = 'http://www.nuforc.org/webreports/ndxe' + dates[m] + '.html'
-    test = urllib2.urlopen(link)
-    u = re.sub(c, '', test.read())
-    while u[0:4] != 'Date':
-        u = u[1:]
+    u = urllib2.urlopen(link).read()
+    u = re.sub(c, '', u)
+    u = u[u.find('Date'):]
     u = u.strip()
     u = u.split('\r\n')
     ret = []
@@ -39,8 +38,10 @@ def addReport(m, dates):
         if u[i] == 'Date / Time' or ('/' in u[i] and ':' in u[i]):
             x = 0
             while x < 7:
-                r = u[i+x]
-                r = r.replace(',', '","')
+                if x == 5:
+                    r = "" + u[i+x] + ""
+                else:
+                    r = u[i+x]
                 ret.append(r)
                 x += 1
         i += 1
@@ -66,18 +67,3 @@ def addAll():
         i += 1
 
 addAll()
-
-'''
-    f = open(fname, 'a+')
-    i = 0
-    while i < len(ret):
-        if i % 7 == 0 and (ret[i+1] == '' or ret[i+2] == ''):
-            i += 7
-        else:
-            if i % 7 != 6:
-                f.write(ret[i] + ',')
-            else:
-                f.write(ret[i] + '\n')
-            i += 1
-    f.close()
-'''
