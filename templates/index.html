@@ -63,9 +63,9 @@ body {
 var reportPoints = [];//fullYearReport;
 
 //currently hardcoded
-var d = "21";
-var m = "2";
 var y = "2017";
+var m = "2";
+var d = "21";
 //console.log(reportPoints);
 var updateMonth = function redrawReports(day,month,year){
 $.ajax({
@@ -73,7 +73,7 @@ $.ajax({
     //'/saveSong'
     type: 'GET',
     //'POST'
-    data: {"day":day,"month":month,"year":year},
+    data: {"year":year,"month":month,"day":day},
     //title,artist
     success: function( d ) {
         console.log("success");

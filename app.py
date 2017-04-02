@@ -29,9 +29,9 @@ def root():
 @app.route("/redrawMonth")
 def refineData():
     #print fullReport
-    day = request.args.get("day")
-    month = request.args.get("month")
     year = request.args.get("year")
+    month = request.args.get("month")
+    day = request.args.get("day")
     CSVreports = csv.DictReader(open('data/formatted'+year+'.csv'))
     result = []
     for report in CSVreports:
