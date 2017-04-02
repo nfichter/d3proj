@@ -22,7 +22,7 @@ def getDates():
     return dates
 
 def addReport(m, dates):
-    link = 'http://www.nuforc.org/webreports/ndxe' + dates[0] + '.html'
+    link = 'http://www.nuforc.org/webreports/ndxe' + dates[m] + '.html'
     test = urllib2.urlopen(link)
     u = re.sub(c, '', test.read())
     while u[0:4] != 'Date':
@@ -39,27 +39,31 @@ def addReport(m, dates):
         if u[i] == 'Date / Time' or ('/' in u[i] and ':' in u[i]):
             x = 0
             while x < 7:
-                ret.append(u[i+x])
+                ret.append(str(u[i+x]))
                 x += 1
         i += 1
-    z = 21
-    while z < 28:
-        print ret[z]
-        z += 1
-
-dates = getDates()
-addReport(0, dates)
+    f = open(fname, 'a+')
+    i = 0
+    while i < len(ret):
+        if i % 7 == 0 and (ret[i+1] == '' or ret[i+2] == ''):
+            i += 7
+        else:
+            if i % 7 != 6:
+                f.write(ret[i] + ',')
+            else:
+                f.write(ret[i] + '\n')
+            i += 1
+    f.close()
         
-
-
 def addAll():
     dates = getDates()
     i = 0
-    while i < len(dates):
+    while i < 3:
         addReport(i, dates)
         print 'Added ' + dates[i][4:] + '/' + dates[i][0:4]
         i += 1
 
+addAll()
 
 '''
     f = open(fname, 'a+')
