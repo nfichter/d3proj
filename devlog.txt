@@ -67,3 +67,5 @@ anyaK -- 12:40
     Made site compatable with months
 jordanC -- 13:08
     Added sliders and checkboxes for years, months, days
+anyaK -- 18:59
+    Added map functionality for years, months, days
