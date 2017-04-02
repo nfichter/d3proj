@@ -28,16 +28,27 @@ def root():
 #ajax to get specific month data
 @app.route("/redrawMonth")
 def refineData():
-    fullReport = json.loads(request.args.get("fullReport"))
     #print fullReport
+    day = request.args.get("day")
     month = request.args.get("month")
+    year = request.args.get("year")
+    CSVreports = csv.DictReader(open('data/formatted'+year+'.csv'))
     result = []
-    for report in fullReport:
-        reportMonth = report["date"].split("/")[0]
-    #print report["date"] + " : " + str(reportMonth)
-        if reportMonth == str(month):
-            print "yes"
-            result.append(report)
+    for report in CSVreports:
+        tempReport = {}
+        for key in report:
+            tempReport[mark_safe(key)] = mark_safe(report[key])
+        if day != "":
+            reportDay = report["date"].split("/")[1]
+            if reportDay == str(day):
+                if month != "":
+                    reportMonth = report["date"].split("/")[0]
+                    if reportMonth == str(month):
+                        result.append(tempReport)
+        elif month != "":
+            reportMonth = report["date"].split("/")[0]
+            if reportMonth == str(month):
+                result.append(tempReport)
     return json.dumps(result)
 
 

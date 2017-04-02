@@ -54,19 +54,20 @@ body {
 </script>
 <script>
 //circle stuff
-var fullYearReport = {{reports}};
 var reportPoints = [];//fullYearReport;
 
 //currently hardcoded
-var month = 2;
+var d = "21";
+var m = "2";
+var y = "2017";
 //console.log(reportPoints);
-var updateMonth = function redrawReports(month){
+var updateMonth = function redrawReports(day,month,year){
 $.ajax({
     url: '/redrawMonth',
     //'/saveSong'
     type: 'GET',
     //'POST'
-    data: {"fullReport":JSON.stringify(fullYearReport),"month":month},
+    data: {"day":day,"month":month,"year":year},
     //title,artist
     success: function( d ) {
         console.log("success");
@@ -77,7 +78,7 @@ $.ajax({
     }
 });
 };
-updateMonth(month);
+updateMonth(d,m,y);
 </script>
     </body>
 </html>
