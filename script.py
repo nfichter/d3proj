@@ -45,7 +45,7 @@ def addReport(m, dates):
     f = open(fname, 'a+')
     i = 0
     while i < len(ret):
-        if i % 7 == 0 and (ret[i+1] == '' or ret[i+2] == ''):
+        if i % 7 == 0 and (ret[i+1] == '""' or ret[i+2] == '""'):
             i += 7
         else:
             if i % 7 != 6:
@@ -58,7 +58,7 @@ def addReport(m, dates):
 def addAll():
     dates = getDates()
     i = 0
-    while i < 3:
+    while i < 1:
         addReport(i, dates)
         print 'Added ' + dates[i][4:] + '/' + dates[i][0:4]
         i += 1
