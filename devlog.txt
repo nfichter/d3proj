@@ -69,3 +69,6 @@ jordanC -- 13:08
     Added sliders and checkboxes for years, months, days
 anyaK -- 18:59
     Added map functionality for years, months, days
+jasonC -- 19:45
+    Completed script to parse reports from 1905 to 2017
+    Added all reports to csv files
