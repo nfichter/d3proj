@@ -89,15 +89,16 @@ updateMonth(d,m,y);
 
     <div class="row">
       <div class="small-8 columns">
-	<div class="slider" data-slider data-start="1905" data-end="2017" data-initial-start="2017">
-	  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="years"></span>
+	<div class="slider" data-slider data-start="1" data-end="31" data-initial-start="15">
+	  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="days"></span>
 	  <span class="slider-fill" data-slider-fill></span>
 	</div>
       </div>
       <div class="small-2 columns">
-	<input type="number" id="years">
+	<input type="number" id="days">
       </div>
       <div class="small-2 columns">
+	<input id="days-enable" type="checkbox"><label for="days-enable">Enable Days</label>
       </div>
     </div>
 
@@ -118,16 +119,15 @@ updateMonth(d,m,y);
 
     <div class="row">
       <div class="small-8 columns">
-	<div class="slider" data-slider data-start="1" data-end="31" data-initial-start="15">
-	  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="days"></span>
+	<div class="slider" data-slider data-start="1905" data-end="2017" data-initial-start="2017">
+	  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="years"></span>
 	  <span class="slider-fill" data-slider-fill></span>
 	</div>
       </div>
       <div class="small-2 columns">
-	<input type="number" id="days">
+	<input type="number" id="years">
       </div>
       <div class="small-2 columns">
-	<input id="days-enable" type="checkbox"><label for="days-enable">Enable Days</label>
       </div>
     </div>
     
