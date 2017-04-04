@@ -85,5 +85,9 @@ jasonC -- 14:09
     Readded formatted2017.csv with shape and duration
     Removed CSV files that did not have any reports
     Added function to return total number of reports
+jasonC -- 15:20
+    Added function to format all CSV files
+    Removed incorrect entry in 1972.csv
+    Formatted 1905 to 1971
     
 
