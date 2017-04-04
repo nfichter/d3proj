@@ -89,7 +89,7 @@ updateMonth(d,m,y);
 
     <div class="row">
       <div class="small-8 columns">
-	<div class="slider" id="daysSlider" data-slider data-start="1" data-end="31" data-initial-start="15">
+	<div class="slider" id="day-slider" data-slider data-start="1" data-end="31" data-initial-start="21">
 	  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="days"></span>
 	  <span class="slider-fill" data-slider-fill></span>
 	</div>
@@ -104,7 +104,7 @@ updateMonth(d,m,y);
 
     <div class="row">
       <div class="small-8 columns">
-	<div class="slider" data-slider data-start="1" data-end="12" data-initial-start="6">
+	<div class="slider" id="month-slider" data-slider data-start="1" data-end="12" data-initial-start="2">
 	  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="months"></span>
 	  <span class="slider-fill" data-slider-fill></span>
 	</div>
@@ -119,7 +119,7 @@ updateMonth(d,m,y);
 
     <div class="row">
       <div class="small-8 columns">
-	<div class="slider" data-slider data-start="1905" data-end="2017" data-initial-start="2017">
+	<div class="slider" id="year-slider" data-slider data-start="1905" data-end="2017" data-initial-start="2017">
 	  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="years"></span>
 	  <span class="slider-fill" data-slider-fill></span>
 	</div>
@@ -136,11 +136,16 @@ updateMonth(d,m,y);
     <script src="static/js/vendor/foundation.js"></script>
     <script src="static/js/app.js"></script>
     <script>
-$('.slider').on('changed.zf.slider', function() {
+      $('.slider').on('changed.zf.slider', function() {
       //do whatever when user is done with the range slider
-    console.log("yeah");
-    console.log($('#daysSlider').attr('data-slider'));
-});
+      var d = $('#day-slider').children('.slider-handle').attr('aria-valuenow');
+      var m = $('#month-slider').children('.slider-handle').attr('aria-valuenow');
+      var y = $('#year-slider').children('.slider-handle').attr('aria-valuenow');
+      console.log("Day: " + d);
+      console.log("Month: " + m);
+      console.log("Year: " + y);
+      updateMonth(d,m,y);
+      });
     </script>
 
 
