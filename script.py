@@ -65,4 +65,30 @@ def addAll():
         print 'Added ' + dates[i][4:] + '/' + dates[i][0:4]
         i += 1
 
-addAll()
+#addAll()
+
+def reportCount():
+    dates = getDates()
+    count = 0
+    i = 0
+    year = ''
+    while i < len(dates):
+        if dates[i][0:4] != year:
+            year = dates[i][0:4]
+            fname = 'data/' + year + '.csv'
+            if os.path.isfile(fname):
+                f = open(fname)
+                lines = f.readlines()
+                f.close()
+                numReports = len(lines)-1
+                count += numReports
+                if numReports == 0:
+                    print 'REMOVING ' + year
+                    os.remove(fname)
+                print year + ': ' + str(numReports) + ' reports'
+            else:
+                print year + ' HAS BEEN REMOVED'
+        i += 1
+    print 'Total: ' + str(count) + ' reports'
+
+#reportCount()
