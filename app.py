@@ -71,12 +71,12 @@ def CSVtoFormattedCSV(year):
         writer.writeheader()
 
         for report in CSVreports:
-            print isWorking
+            print str(isWorking) + ': ' + report['City'] + ', ' + report['State']
             isWorking = isWorking + 1
             result = getData(report["City"],report["State"],report["Summary"],str.split(report["Date / Time"]," ")[0])
             if result != False:
                 writer.writerow(result)
-    print "Sucess!"
+    print "Success!"
     #print json.dumps(data['results'][0], indent=4, sort_keys=True)
     #print reports
 

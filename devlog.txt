@@ -60,6 +60,7 @@ anyaK -- 22:32
     Added hover feature to points
 jasonC -- 23:50
     Wrote a script to parse report data from sites (incomplete)
+    
 =============== 04/2/17 ===============
 anyaK -- 11:30
     Cleaned up js code
@@ -72,3 +73,10 @@ anyaK -- 18:59
 jasonC -- 19:45
     Completed script to parse reports from 1905 to 2017
     Added all reports to csv files
+
+=============== 04/4/17 ===============
+jasonC -- 1:17
+    Added formatted2017.csv
+    Minor change in app.CSVtoFormattedCSV()
+    Attempted to format 2016.csv (Reached max number of requests?)
+
