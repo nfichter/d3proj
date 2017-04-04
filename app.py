@@ -7,7 +7,9 @@ app = Flask(__name__)
 #key = 'AIzaSyB3GIkGNGK1sk2wYy1TtmhG4kPlWRDaNRE'
 #key = 'AIzaSyAnbnts5t_z9voKU10_B-x9f-C285ZX0rA'
 #key = 'AIzaSyAg2IzVc0LmFugKklwgL92ZY1Cw8wO1OdE'
-key = 'AIzaSyAa_qMx70WsCruP8umT3cvysuCncHNTtHE'
+#key = 'AIzaSyAa_qMx70WsCruP8umT3cvysuCncHNTtHE'
+#key = 'AIzaSyDiBd8mH_oYQD7CevKOPDZXHJVKzsO2wZ0'
+key = 'AIzaSyCaowaJYaIGlnHq15uJQmT1nHdLM9C7P9g'
 
 #format City name for querey
 def formatCity(name):
