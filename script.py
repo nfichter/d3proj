@@ -1,4 +1,4 @@
-import urllib2, re, os.path
+import urllib2, re, os.path, app
 
 c = re.compile('<.*?>')
 
@@ -91,4 +91,22 @@ def reportCount():
         i += 1
     print 'Total: ' + str(count) + ' reports'
 
+def formatAll():
+    dates = getDates()
+    year = ''
+    i = len(dates)-1
+    while i >= 0:
+        year = dates[i][0:4]
+        original = 'data/' + year + '.csv'
+        if os.path.isfile(original):
+            fname = 'data/formatted' + year + '.csv'
+            if os.path.isfile(fname):
+                pass
+            else:
+                print 'Formatting ' + year
+                app.CSVtoFormattedCSV(year)
+        i -= 1
+
+formatAll()
+        
 #reportCount()

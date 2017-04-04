@@ -3,7 +3,8 @@ import urllib2, json, csv
 from django.utils.safestring import mark_safe
 
 app = Flask(__name__)
-key = "AIzaSyCribAPQyNvWFjOt0g66YjJVP_q2REPvoE"
+#key = "AIzaSyCribAPQyNvWFjOt0g66YjJVP_q2REPvoE"
+key = 'AIzaSyB3GIkGNGK1sk2wYy1TtmhG4kPlWRDaNRE'
 
 #format City name for querey
 def formatCity(name):
