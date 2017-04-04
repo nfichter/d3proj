@@ -3,7 +3,8 @@ import urllib2, json, csv
 from django.utils.safestring import mark_safe
 
 app = Flask(__name__)
-key = "AIzaSyCribAPQyNvWFjOt0g66YjJVP_q2REPvoE"
+#key = "AIzaSyCribAPQyNvWFjOt0g66YjJVP_q2REPvoE"
+key = 'AIzaSyB3GIkGNGK1sk2wYy1TtmhG4kPlWRDaNRE'
 
 #format City name for querey
 def formatCity(name):
@@ -52,13 +53,13 @@ def refineData():
     return json.dumps(result)
 
 
-def getData(city,state,specs,date):
+def getData(city,state,specs,date,shape,duration):
     city = formatCity(city)
     u = urllib2.urlopen("https://maps.googleapis.com/maps/api/geocode/json?address="+city+",+"+state+"&key="+key)
     response = u.read()
     data = json.loads( response )
     if data['status'] == 'OK':
-        return {mark_safe("lat"):data['results'][0]['geometry']['location']['lat'],mark_safe("lng"):-1*data['results'][0]['geometry']['location']['lng'],mark_safe("state"):mark_safe(state),mark_safe("city"):mark_safe(city),mark_safe("specs"):mark_safe(specs),mark_safe("date"):mark_safe(date)}
+        return {mark_safe("lat"):data['results'][0]['geometry']['location']['lat'],mark_safe("lng"):-1*data['results'][0]['geometry']['location']['lng'],mark_safe("state"):mark_safe(state),mark_safe("city"):mark_safe(city),mark_safe("specs"):mark_safe(specs),mark_safe("date"):mark_safe(date),mark_safe('shape'):mark_safe(shape),mark_safe('duration'):mark_safe(duration)}
     return False
 
 #one time use per csv to preevent overuse of google maps api
@@ -66,14 +67,14 @@ def CSVtoFormattedCSV(year):
     CSVreports = csv.DictReader(open('data/' + year + '.csv'))
     isWorking = 0 #counter
     with open('data/formatted'+year+'.csv', 'w') as csvfile:
-        fieldnames = ['lat', 'lng','city','state','date','specs']
+        fieldnames = ['lat', 'lng','city','state','date','specs', 'shape', 'duration']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
 
         for report in CSVreports:
             print str(isWorking) + ': ' + report['City'] + ', ' + report['State']
             isWorking = isWorking + 1
-            result = getData(report["City"],report["State"],report["Summary"],str.split(report["Date / Time"]," ")[0])
+            result = getData(report["City"],report["State"],report["Summary"],str.split(report["Date / Time"]," ")[0],report['Shape'],report['Duration'])
             if result != False:
                 writer.writerow(result)
     print "Success!"

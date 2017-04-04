@@ -2,7 +2,10 @@ var tip = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
-      return "<strong>Date:</strong> <span style='color:red'>" + d.day + "</span><br><strong>Report:</strong> <span style='color:red'>" + d.specs + "</span>";
+	return "<strong>Date:</strong> <span style='color:red'>" + d.day
+	    + "</span><br><strong>Shape:</strong> <span style='color:red'>" + d.shape
+	    + "</span><br><strong>Duration:</strong> <span style='color:red'>" + d.duration
+	    + "</span><br><strong>Summary:</strong> <span style='color:red'>" + d.specs + "</span>";
     })
 
   var pane = d3.select("svg");
@@ -91,6 +94,8 @@ var tip = d3.tip()
           tempDict.city = dotInfo[i]["city"];
           tempDict.specs = dotInfo[i]["specs"];
           tempDict.day = dotInfo[i]["date"];
+	  tempDict.shape = dotInfo[i]['shape']
+	  tempDict.duration = dotInfo[i]['duration']
           pointList.push(tempDict);
       };
   var points = pane.selectAll("circle")

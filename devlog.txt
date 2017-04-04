@@ -79,4 +79,15 @@ jasonC -- 1:17
     Added formatted2017.csv
     Minor change in app.CSVtoFormattedCSV()
     Attempted to format 2016.csv (Reached max number of requests?)
+jasonC -- 14:09
+    Changed CSV formatting functions to include shape and duration
+    Added shape and duration to mouse-over display for map dots
+    Readded formatted2017.csv with shape and duration
+    Removed CSV files that did not have any reports
+    Added function to return total number of reports
+jasonC -- 15:20
+    Added function to format all CSV files
+    Removed incorrect entry in 1972.csv
+    Formatted 1905 to 1971
+    
 
