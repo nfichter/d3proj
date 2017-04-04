@@ -8,9 +8,7 @@ var tip = d3.tip()
   var pane = d3.select("svg");
   pane.attr("width",1203);
   pane.attr("height",595);
-  pane.append("svg:image")
-  .attr("xlink:href","../static/usaMap.jpg")
-  .attr("transform", "scale(2)");
+  pane.append("svg:image").attr("href","../static/usaMap.jpg").attr("width",1203).attr("height",595);
 
   pane.call(tip);
 
