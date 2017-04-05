@@ -89,6 +89,8 @@ jasonC -- 15:20
     Added function to format all CSV files
     Removed incorrect entry in 1972.csv
     Formatted 1905 to 1971
+anyaK -- 15:30
+    Tried to get slider data
 jasonC -- 22:24
     Formatted 1972 to 1998
     Removed unnecessary files and API keys
