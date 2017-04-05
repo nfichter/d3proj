@@ -85,12 +85,18 @@ jasonC -- 14:09
     Readded formatted2017.csv with shape and duration
     Removed CSV files that did not have any reports
     Added function to return total number of reports
+jordanC -- 14:02
+    Attempted to retrieve slider values and call update function
 jasonC -- 15:20
     Added function to format all CSV files
     Removed incorrect entry in 1972.csv
     Formatted 1905 to 1971
 anyaK -- 15:30
     Tried to get slider data
+jordanC -- 19:10
+    Implemented slider functionality to update visiual dots
+jordanC -- 21:42
+    Retrieved and printed checkbox value
 jasonC -- 22:24
     Formatted 1972 to 1998
     Removed unnecessary files and API keys
@@ -98,5 +104,6 @@ jasonC -- 22:24
 =============== 04/5/17 ===============
 jasonC -- 2:42
     Removed CSV files for 1999 to 2017
-    
-
+jordanC -- 2:44
+    Implemented styling for header, tooltips, labeling
+    Removed checkboxes and functions that retrieve value
