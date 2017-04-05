@@ -5,67 +5,84 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D3 Test Page</title>
+    <title>UFO Reports</title>
     <link rel="stylesheet" href="static/css/foundation.css">
     <link rel="stylesheet" href="static/css/app.css">
     
-        <script src="http://d3js.org/d3.v3.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="static/js/tooltip.js"></script> <!--borrowed code from https://github.com/Caged/d3-tip-->
-        <style>
-body {
-    font: .9em sans-serif;
-}
-/*tip code */
-.d3-tip {
-  line-height: 2;
-  font-weight: bold;
-  padding: 6px;
-  background: rgba(0, 0, 0, .8);
-  color: #fff;
-  border-radius: 2px;
-  width:200px;
-}
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="static/js/tooltip.js"></script> <!--borrowed code from https://github.com/Caged/d3-tip-->
+    <style>
+      body {
+      font: .9em sans-serif;
+      }
+      /*tip code */
+      .d3-tip {
+      line-height: 2;
+      font-weight: bold;
+      padding: 6px;
+      background: rgba(0, 0, 0, .8);
+      color: #fff;
+      border-radius: 2px;
+      width: 300px;
+      }
+      
+      /* Creates a small triangle extender for the tooltip */
+      .d3-tip:after {
+      box-sizing: border-box;
+      display: inline;
+      font-size: 18px;
+      width: 100%;
+      line-height: 0.5;
+      color: rgba(0, 0, 0, 0.8);
+      content: "\25BC";
+      position: absolute;
+      text-align: center;
+      }
+      
+      /* Style northward tooltips differently */
+      .d3-tip.n:after {
+      margin: -1px 0 0 0;
+      top: 100%;
+      left: 0;
+      }
+      
+      .header {
+      text-align: center;
+      background: #074E68;
+      background-size: cover;
+      color: #CFB53B;
+      position: relative;
+      padding-top: 3%;
+      padding-bottom: 3%;
+      }
 
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
-
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-}
-
-        </style>
-    </head>
-    <body>
-    <h1>Import UFObject</h1>
+    </style>
+  </head>
+  
+  
+  
+  <body>
+    
+    <header class="header">
+      <h1 class="headline">UFO Reports <small>(1905-1998)</small></h1>
+    </header>
+    
     <br><br>
     <center>
-        <svg id="pane" style="border:1px solid">
-        </svg>
+      <svg id="pane" style="border:1px solid">
+      </svg>
     </center>
-<script src="static/js/index.js">
-</script>
-<script>
+    <script src="static/js/index.js">
+    </script>
+    <script>
 //circle stuff
 var reportPoints = [];//fullYearReport;
 
 //currently hardcoded
-var y = "2017";
-var m = "2";
-var d = "21";
+var y = "1968";
+var m = "8";
+var d = "15";
 //console.log(reportPoints);
 var updateMonth = function redrawReports(day,month,year){
 $.ajax({
@@ -89,7 +106,7 @@ updateMonth(d,m,y);
 
     <div class="row">
       <div class="small-8 columns">
-	<div class="slider" id="day-slider" data-slider data-start="1" data-end="31" data-initial-start="21">
+	<div class="slider" id="day-slider" data-slider data-start="1" data-end="31" data-initial-start="15">
 	  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="days"></span>
 	  <span class="slider-fill" data-slider-fill></span>
 	</div>
@@ -98,13 +115,12 @@ updateMonth(d,m,y);
 	<input type="number" id="days">
       </div>
       <div class="small-2 columns">
-	<input id="days-enable" type="checkbox" checked><label for="days-enable">Enable Days</label>
       </div>
     </div>
 
     <div class="row">
       <div class="small-8 columns">
-	<div class="slider" id="month-slider" data-slider data-start="1" data-end="12" data-initial-start="2">
+	<div class="slider" id="month-slider" data-slider data-start="1" data-end="12" data-initial-start="8">
 	  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="months"></span>
 	  <span class="slider-fill" data-slider-fill></span>
 	</div>
@@ -113,13 +129,12 @@ updateMonth(d,m,y);
 	<input type="number" id="months">
       </div>
       <div class="small-2 columns">
-	<input id="months-enable" type="checkbox" checked><label for="months-enable">Enable Months</label>
       </div>
     </div>
 
     <div class="row">
       <div class="small-8 columns">
-	<div class="slider" id="year-slider" data-slider data-start="1905" data-end="2017" data-initial-start="2017">
+	<div class="slider" id="year-slider" data-slider data-start="1905" data-end="1998" data-initial-start="1968">
 	  <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="years"></span>
 	  <span class="slider-fill" data-slider-fill></span>
 	</div>
@@ -144,18 +159,6 @@ updateMonth(d,m,y);
       console.log("Month: " + m);
       console.log("Year: " + y);
       updateMonth(d,m,y);
-      });
-      $('#days-enable').on('change', function() {
-      var enabledD = $(this).is(':checked');
-      if(!(enabledD)){
-        $('#day-slider').foundation('disable');
-        console.log("disabled");
-      }
-      console.log(enabledD);
-      });
-      $('#months-enable').on('change', function() {
-      var enabledM = $(this).is(':checked');
-      console.log(enabledM);
       });
     </script>
 
