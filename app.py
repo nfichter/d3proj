@@ -3,19 +3,6 @@ import urllib2, json, csv
 from django.utils.safestring import mark_safe
 
 app = Flask(__name__)
-#key = "AIzaSyCribAPQyNvWFjOt0g66YjJVP_q2REPvoE"
-#key = 'AIzaSyB3GIkGNGK1sk2wYy1TtmhG4kPlWRDaNRE'
-#key = 'AIzaSyAnbnts5t_z9voKU10_B-x9f-C285ZX0rA'
-#key = 'AIzaSyAg2IzVc0LmFugKklwgL92ZY1Cw8wO1OdE'
-#key = 'AIzaSyAa_qMx70WsCruP8umT3cvysuCncHNTtHE'
-#key = 'AIzaSyDiBd8mH_oYQD7CevKOPDZXHJVKzsO2wZ0'
-#key = 'AIzaSyCaowaJYaIGlnHq15uJQmT1nHdLM9C7P9g'
-#key = 'AIzaSyCRD7FuKYqFUwtB5QIwkyoHDqkAej-npcM'
-#key = 'AIzaSyCnIFGXSR3gaGB-Dh4FMLG8Gmbx8vfiQik'
-#key = 'AIzaSyA7oZeK4PoRDGDlVSPTFhn0GfA_UGhFYEY'
-#key = 'AIzaSyAWkLTFrSX-BTgBMVR0WUrYslfN-IJ3N3U'
-#key = 'AIzaSyB1xIdk3B7D5emHQeCF59cHANQ71bascYE'
-key = 'AIzaSyBadF6ZhwbuJT82gCHo3hP1iZfEhKgy98U'
 
 #format City name for querey
 def formatCity(name):

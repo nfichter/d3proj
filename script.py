@@ -108,6 +108,6 @@ def formatAll():
         i -= 1
     print 'All CSV files have been formatted!'
 
-formatAll()
+#formatAll()
         
 #reportCount()
