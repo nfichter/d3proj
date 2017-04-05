@@ -13,7 +13,9 @@ app = Flask(__name__)
 #key = 'AIzaSyCRD7FuKYqFUwtB5QIwkyoHDqkAej-npcM'
 #key = 'AIzaSyCnIFGXSR3gaGB-Dh4FMLG8Gmbx8vfiQik'
 #key = 'AIzaSyA7oZeK4PoRDGDlVSPTFhn0GfA_UGhFYEY'
-key = 'AIzaSyAWkLTFrSX-BTgBMVR0WUrYslfN-IJ3N3U'
+#key = 'AIzaSyAWkLTFrSX-BTgBMVR0WUrYslfN-IJ3N3U'
+#key = 'AIzaSyB1xIdk3B7D5emHQeCF59cHANQ71bascYE'
+key = 'AIzaSyBadF6ZhwbuJT82gCHo3hP1iZfEhKgy98U'
 
 #format City name for querey
 def formatCity(name):
