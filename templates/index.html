@@ -98,7 +98,7 @@ updateMonth(d,m,y);
 	<input type="number" id="days">
       </div>
       <div class="small-2 columns">
-	<input id="days-enable" type="checkbox"><label for="days-enable">Enable Days</label>
+	<input id="days-enable" type="checkbox" checked><label for="days-enable">Enable Days</label>
       </div>
     </div>
 
@@ -113,7 +113,7 @@ updateMonth(d,m,y);
 	<input type="number" id="months">
       </div>
       <div class="small-2 columns">
-	<input id="months-enable" type="checkbox"><label for="months-enable">Enable Months</label>
+	<input id="months-enable" type="checkbox" checked><label for="months-enable">Enable Months</label>
       </div>
     </div>
 
@@ -137,7 +137,6 @@ updateMonth(d,m,y);
     <script src="static/js/app.js"></script>
     <script>
       $('.slider').on('changed.zf.slider', function() {
-      //do whatever when user is done with the range slider
       var d = $('#day-slider').children('.slider-handle').attr('aria-valuenow');
       var m = $('#month-slider').children('.slider-handle').attr('aria-valuenow');
       var y = $('#year-slider').children('.slider-handle').attr('aria-valuenow');
@@ -145,6 +144,18 @@ updateMonth(d,m,y);
       console.log("Month: " + m);
       console.log("Year: " + y);
       updateMonth(d,m,y);
+      });
+      $('#days-enable').on('change', function() {
+      var enabledD = $(this).is(':checked');
+      if(!(enabledD)){
+        $('#day-slider').foundation('disable');
+        console.log("disabled");
+      }
+      console.log(enabledD);
+      });
+      $('#months-enable').on('change', function() {
+      var enabledM = $(this).is(':checked');
+      console.log(enabledM);
       });
     </script>
 
