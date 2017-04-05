@@ -19,6 +19,7 @@
       /*tip code */
       .d3-tip {
       line-height: 2;
+      font-family: "Courier New", monospace;
       font-weight: bold;
       padding: 6px;
       background: rgba(0, 0, 0, .8);
@@ -55,6 +56,10 @@
       position: relative;
       padding-top: 3%;
       padding-bottom: 3%;
+      }
+
+      .small-1 columns {
+      font-size: 18px;
       }
 
     </style>
@@ -111,11 +116,14 @@ updateMonth(d,m,y);
 	  <span class="slider-fill" data-slider-fill></span>
 	</div>
       </div>
+      <div class="small-1 columns">
+	<h5>Day:</h5>
+      </div>
       <div class="small-2 columns">
 	<input type="number" id="days">
       </div>
-      <div class="small-2 columns">
-      </div>
+      <div class="small-1 columns">
+	</div>
     </div>
 
     <div class="row">
@@ -125,10 +133,13 @@ updateMonth(d,m,y);
 	  <span class="slider-fill" data-slider-fill></span>
 	</div>
       </div>
+      <div class="small-1 columns">
+	<h5>Month</h5>
+      </div>
       <div class="small-2 columns">
 	<input type="number" id="months">
       </div>
-      <div class="small-2 columns">
+      <div class="small-1 columns">
       </div>
     </div>
 
@@ -139,10 +150,13 @@ updateMonth(d,m,y);
 	  <span class="slider-fill" data-slider-fill></span>
 	</div>
       </div>
+      <div class="small-1 columns">
+	<h5>Year:</h5>
+      </div>
       <div class="small-2 columns">
 	<input type="number" id="years">
       </div>
-      <div class="small-2 columns">
+      <div class="small-1 columns">
       </div>
     </div>
     
