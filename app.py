@@ -79,10 +79,6 @@ def CSVtoFormattedCSV(year):
     #print json.dumps(data['results'][0], indent=4, sort_keys=True)
     #print reports
 
-def getReports():
-    reports = csv.DictReader(open('data/2017.csv')) #need to figure out slider interaction
-    return reports
-
 if __name__ == "__main__":
-    app.debug = True
+    #app.debug = True
     app.run()
