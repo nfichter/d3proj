@@ -11,7 +11,7 @@ def formatCity(name):
 
 @app.route("/")
 def root():
-    CSVreports = csv.DictReader(open('data/formatted2017.csv'))
+    CSVreports = csv.DictReader(open('data/formatted1998.csv'))
     reports = []
     isWorking = 0 #counter
     for report in CSVreports:
